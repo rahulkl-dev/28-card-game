@@ -10,8 +10,11 @@ export const SocketProvider = ({ children }) => {
   const [turnTime, setTurnTime] = useState(15);
 
   useEffect(() => {
-    // Uses VITE_SERVER_URL in production, or relative path in dev (handled by Vite proxy)
-    const serverUrl = import.meta.env.VITE_SERVER_URL || window.location.origin;
+    // In local dev, use relative origin (Vite proxy). In production, target Render directly.
+    const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const serverUrl = isDev 
+      ? window.location.origin 
+      : 'https://two8-card-game-1b5i.onrender.com';
 
     const s = io(serverUrl, {
       transports: ['websocket', 'polling'],
