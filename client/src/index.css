@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at 50% 20%, #1e293b 0%, #0f172a 60%, #020617 100%);
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Luxury Emerald Felt Board */
+.casino-felt-table {
+  background: radial-gradient(ellipse at center, #065f46 0%, #044332 50%, #022c22 85%, #011913 100%) !important;
+  border: 8px solid #1c1917 !important;
+  outline: 2px solid #ca8a04 !important;
+  box-shadow: 
+    inset 0 0 100px rgba(0, 0, 0, 0.85),
+    0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Metallic Gold Glass Panels */
+.gold-glass {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%) !important;
+  border: 1px solid rgba(234, 179, 8, 0.35) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(14px);
+}
+
+/* Realistic Tactile Playing Cards */
+.casino-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 60%, #e2e8f0 100%) !important;
+  border-radius: 10px !important;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9) !important;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease !important;
+  user-select: none;
+  cursor: pointer;
+}
+
+.casino-card:hover:not(:disabled) {
+  transform: translateY(-14px) scale(1.08) !important;
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.6),
+    0 0 18px rgba(250, 204, 21, 0.5) !important;
+  z-index: 40;
+}
+
+/* Turn Glow Halos */
+@keyframes goldGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.7), 0 0 30px rgba(234, 179, 8, 0.3);
+    border-color: #facc15;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(234, 179, 8, 1), 0 0 50px rgba(234, 179, 8, 0.5);
+    border-color: #fef08a;
+  }
+}
+
+.active-turn-pulse {
+  animation: goldGlow 1.5s infinite ease-in-out !important;
+}
